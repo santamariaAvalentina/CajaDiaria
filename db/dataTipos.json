@@ -1,0 +1,20 @@
+
+    [
+        {
+            "id": 1,
+            "nombre":"Venta"
+        },
+        {
+            "id": 2,
+            "nombre":"Ingreso"
+        },
+        {
+            "id": 3,
+            "nombre":"Gasto"
+        },
+        {
+            "id": 4,
+            "nombre":"Sueldo"
+        }
+        
+    ]

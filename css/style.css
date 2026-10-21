@@ -1,0 +1,356 @@
+/* GENERAL */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  /* Paleta Tu Caja Diaria */
+  --bacg: #F4F7F8;
+  --fondo: #FFFFFF;
+  --borde: #DCE5E9;
+  --verde: #159E9A;
+  --verde-claro: #117F7C;
+  --verdeVenta: #218653;
+  --rojo: #D84C5B;
+  --amarillo: #B7791F;
+  --texto: #243746;
+  --muted: #718096;
+  --efectivo: #173B57;
+  --azul: #173B57;
+  --turquesa-suave: #E1F4F2;
+  --radius: 14px;
+}
+
+/* BODY */
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  font-family: 'DM Sans', sans-serif;
+  background: var(--bacg);
+  color: var(--texto);
+  padding: 16px;
+}
+
+/* HEADER */
+header {
+  text-align: center;
+  margin-bottom: 16px;
+  padding: 18px;
+  background: var(--azul);
+  border-radius: var(--radius);
+  box-shadow: 0 4px 14px rgba(23, 59, 87, 0.12);
+}
+
+header h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.4rem;
+  color: #FFFFFF;
+}
+
+header p {
+  font-size: 0.7rem;
+  color: rgba(255, 255, 255, 0.78);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-top: 3px;
+}
+
+/* MAIN */
+main {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 24px;
+}
+
+section {
+  background: var(--fondo);
+  border: 1px solid var(--borde);
+  border-radius: var(--radius);
+  padding: 16px;
+  margin-bottom: 14px;
+  box-shadow: 0 3px 12px rgba(23, 59, 87, 0.05);
+}
+
+section h2 {
+  font-size: 0.75rem;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+/* CAMPOS */
+input,
+select {
+  width: 100%;
+  background: #FFFFFF;
+  border: 1.5px solid var(--borde);
+  border-radius: 8px;
+  padding: 10px 12px;
+  color: var(--texto);
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.9rem;
+  margin-bottom: 8px;
+}
+
+input::placeholder {
+  color: #9AA8B4;
+}
+
+input:focus,
+select:focus {
+  outline: none;
+  border-color: var(--verde);
+  box-shadow: 0 0 0 3px rgba(21, 158, 154, 0.12);
+}
+
+.bg {
+  background-color: var(--turquesa-suave);
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type="number"] {
+  appearance: textfield;
+}
+
+/* BOTONES */
+button {
+  width: 100%;
+  padding: 12px;
+  border: none;
+  border-radius: 10px;
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 700;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: background-color 0.2s, transform 0.2s, box-shadow 0.2s;
+}
+
+#cargar,
+#btnAgregar {
+  background: var(--verde);
+  color: #FFFFFF;
+  margin-top: 4px;
+}
+
+#cargar:hover,
+#btnAgregar:hover {
+  background: var(--verde-claro);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(21, 158, 154, 0.2);
+}
+
+/* RESUMEN Y CIERRE DE CAJA */
+#cierreEfectivo {
+  background: var(--efectivo);
+  color: #FFFFFF;
+}
+
+#cierreEfectivo h2 {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.ventasFinales {
+  gap: 3px;
+  color: #FFFFFF;
+  font-size: small;
+  padding-left: 30px;
+  font-family: 'DM Sans', sans-serif;
+}
+
+#sueldos {
+  background-color: #173B57;
+  color: #FFFFFF;
+}
+
+#sueldos h2 {
+  color: #FFFFFF;
+}
+
+#cierreIngresos {
+  background-color: #E1F4F2;
+  color: #173B57;
+}
+
+#cierreIngresos h2,
+#cierreIngresos p,
+#cierreIngresos span,
+#cierreIngresos strong,
+#cierreIngresos div {
+  color: #173B57;
+}
+
+#cierreTransferencia {
+  background: #426B83;
+  color: #FFFFFF;
+}
+
+#cierreTransferencia h2 {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+#cierreTarjeta {
+  background: #6876A6;
+  color: #FFFFFF;
+}
+
+#cierreTarjeta h2 {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+/* VENTAS TOTALES */
+#ventasTotales {
+    background: var(--turquesa-suave);
+    border: 1px solid var(--verde);
+    color: var(--azul);
+}
+
+#ventasTotales h2 {
+    color: var(--azul);
+}
+
+#ventasTotales .ventasFinales {
+    color: var(--azul);
+}
+
+#ventasTotales .totalVentasDestacado {
+    margin-top: 12px;
+    padding-top: 12px;
+    border-top: 1px solid var(--verde);
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--verde-claro);
+}
+
+.contenedorCajaCierre {
+  margin: auto;
+}
+
+.contenedorMovimiento {
+  display: grid;
+}
+
+/* GASTOS TOTALES */
+#gastosTotales {
+    background: #FFF1F2;
+    border: 1px solid #F2C4CB;
+    color: #873744;
+}
+
+#gastosTotales h2 {
+    color: #873744;
+}
+
+#gastosTotales .ventasFinales {
+    color: #873744;
+}
+
+#gastosTotales .totalGastosDestacado {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #C0394B;
+}
+
+/* MOVIMIENTOS */
+.renderMov {
+  display: grid;
+  grid-template-columns: 1fr 1fr auto 1fr auto;
+  align-items: center;
+  color: var(--texto);
+  font-family: 'DM Sans', sans-serif;
+  gap: 5px;
+  border-bottom: 1px solid var(--borde);
+  padding: 10px;
+}
+
+.todosMov {
+  display: grid;
+  grid-template-columns: 1fr 1fr auto 1fr auto;
+  align-items: center;
+  color: var(--texto);
+  font-family: 'DM Sans', sans-serif;
+  gap: 5px;
+  border-bottom: 1px solid var(--borde);
+  padding: 10px;
+  background-color: var(--fondo);
+}
+
+.movimientoDia {
+  display: grid;
+  grid-template-columns: auto 1fr;
+}
+
+.btnEliminar {
+  width: auto;
+  background-color: transparent;
+  color: var(--rojo);
+  cursor: pointer;
+  font-size: 0.6rem;
+}
+
+.movTotales {
+  padding: 15px;
+}
+
+.venta {
+  color: var(--verdeVenta);
+  font-size: medium;
+}
+
+.gasto {
+  color: var(--rojo);
+  font-size: medium;
+}
+
+.ingreso {
+  color: var(--amarillo);
+  font-size: medium;
+}
+
+.hora,
+.descripcion {
+  font-size: 2vh;
+  color: var(--muted);
+  text-align: center;
+}
+
+.descripcionN {
+  color: var(--texto);
+  font-size: small;
+}
+
+/* WHATSAPP */
+#btnWhatsapp {
+  background: #25D366;
+  color: #FFFFFF;
+  margin-bottom: 14px;
+}
+
+#btnWhatsapp:hover {
+  background: #1DA851;
+  transform: translateY(-1px);
+}
+
+/* FOOTER */
+footer {
+  text-align: center;
+  color: var(--muted);
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  main {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+}

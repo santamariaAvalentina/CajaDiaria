@@ -1,0 +1,22 @@
+[
+    {
+        "id": 1,
+        "nombre":"Efectivo"
+    },
+    {
+        "id": 2,
+        "nombre":"Transferencia"
+    },
+    {
+        "id": 3,
+        "nombre":"Debito"
+    },
+    {
+        "id": 4,
+        "nombre":"Credito"
+    },
+    {
+        "id": 5,
+        "nombre":"Qr"
+    }
+]

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=DM+Sans:wght@400;500;700&family=DM+Mono:wght@400;500&display=swap"
+        rel="stylesheet">
+    <!--JS-->
+    <script defer src="./js/main.js"></script>
+    <!--TOASTIFY-->
+    <script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+    <title>Caja Diaria</title>
+</head>
+
+<body>
+
+    <header>
+        <h1>Micky`s Cafe</h1>
+        <p>Tu Caja Diaria</p>
+        <p id="fecha"></p>
+    </header>
+    <main>
+        <div class="contenedorCajaCierre">
+            <section id="apertura">
+                <h2>Apertura de caja</h2>
+                <label>Caja inicial efectivo $</label>
+                <input class="bg" type="number" min="0" id="cajaInicialEfectivo" placeholder="$0">
+                <label>Caja inicial transferencia $</label>
+                <input class="bg" type="number" min="0" id="cajaInicialTransferencia" placeholder="$0">
+                <button id="cargar"> Cargar</button>
+            </section>
+            <section id="formulario">
+                <h2>Agregar movimiento</h2>
+                <select class="bg" id="seleccionarTipo">
+                    <option value="" disabled selected>
+                        Tipo de movimiento
+                    </option>
+                </select>
+                <input class="bg" type="text" id="descripcion" placeholder="Descripción">
+                <input class="bg" type="number" min="0" id="monto" placeholder="Monto en $">
+                <select class="bg" id="seleccionarMetodo">
+                    <option value="" disabled selected>
+                        Metodo
+                    </option>
+                </select>
+                <button id="btnAgregar"> Agregar</button>
+            </section>
+        </div>
+
+        <div class="contenedorMovimiento">
+            <section id="movimientos">
+                <h2>Movimientos del día</h2>
+                <div id="listaMovimientos"></div>
+            </section>
+        </div>
+
+        <div class="contenedorCajaCierre">
+
+            <section id="cierreIngresos">
+                <h2>Ingresos del día</h2>
+                <div id="resumenIngresos"></div>
+            </section>
+
+            <section id="ventasTotales">
+                <h2>Ventas totales del día</h2>
+                <div id="resumenVentasTotales"></div>
+            </section>
+
+            <section id="gastosTotales">
+                <h2>Gastos del día</h2>
+                <div id="resumenGastosTotales"></div>
+            </section>
+
+
+            <section id="cierreEfectivo">
+                <h2>Movimientos en Efectivo</h2>
+                <div id="resumenEfectivo"></div>
+            </section>
+
+            <section id="cierreTransferencia">
+                <h2>Movimientos en Transferencia</h2>
+                <div id="resumenTransferencia"></div>
+            </section>
+
+            <section id="cierreTarjeta">
+                <h2>Movimietos en Debitos / Creditos / QR</h2>
+                <div id="resumenTarjeta"></div>
+            </section>
+            <section id="sueldos">
+                <h2>Sueldos del dia</h2>
+                <div id="sueldosDetallados"></div>
+            </section>
+
+
+            <button id="btnWhatsapp"> Enviar cierre por WhatsApp</button>
+        </div>
+
+    </main>
+    <footer>
+        <p>by Tu Caja Diaria 2026</p>
+    </footer>
+    <!--SWEATALERT-->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</body>
+
+</html>
