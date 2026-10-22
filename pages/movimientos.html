@@ -1,20 +1,32 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Historial de movimientos | Tu Caja Diaria</title>
+
     <link rel="stylesheet" href="../css/style.css">
+
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=DM+Sans:wght@400;500;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+
     <script defer src="../js/movimientos.js"></script>
-    
-    <title>Document</title>
 </head>
-<body>
-    <header>
-         <h1 class="movTotales">Movimientos del dia</h1>
-        <div id="todosMovimientos"></div>
+
+<body class="paginaMovimientos">
+
+    <header class="headerMovimientos">
+        <h1>Movimientos del día</h1>
+        <p>Historial de tu caja diaria</p>
     </header>
-   
+
+    <main class="mainMovimientos">
+        <a class="volverMovimientos" href="../index.html">
+            ← Volver a la caja diaria
+        </a>
+
+        <div id="todosMovimientos"></div>
+    </main>
+
 </body>
 </html>

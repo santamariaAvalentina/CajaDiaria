@@ -1,4 +1,7 @@
-/* GENERAL */
+/* ==============================
+   GENERAL
+============================== */
+
 *, *::before, *::after {
   box-sizing: border-box;
   margin: 0;
@@ -6,7 +9,6 @@
 }
 
 :root {
-  /* Paleta Tu Caja Diaria */
   --bacg: #F4F7F8;
   --fondo: #FFFFFF;
   --borde: #DCE5E9;
@@ -20,82 +22,151 @@
   --efectivo: #173B57;
   --azul: #173B57;
   --turquesa-suave: #E1F4F2;
-  --radius: 14px;
+  --radius: 12px;
 }
 
-/* BODY */
+/* ==============================
+   BODY
+============================== */
+
 body {
-  margin: 0;
   min-height: 100vh;
-  display: grid;
-  grid-template-rows: auto 1fr auto;
+  display: flex;
+  flex-direction: column;
+  padding: 8px;
   font-family: 'DM Sans', sans-serif;
   background: var(--bacg);
   color: var(--texto);
-  padding: 16px;
 }
 
-/* HEADER */
+/* ==============================
+   HEADER
+============================== */
+
 header {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  min-height: 78px;
+  margin-bottom: 12px;
+  padding: 14px 85px;
   text-align: center;
-  margin-bottom: 16px;
-  padding: 18px;
   background: var(--azul);
   border-radius: var(--radius);
-  box-shadow: 0 4px 14px rgba(23, 59, 87, 0.12);
+  box-shadow: 0 3px 10px rgba(23, 59, 87, 0.08);
 }
 
 header h1 {
+  color: #FFFFFF;
   font-family: 'Playfair Display', serif;
   font-size: 1.4rem;
-  color: #FFFFFF;
 }
 
 header p {
-  font-size: 0.7rem;
+  margin-top: 3px;
   color: rgba(255, 255, 255, 0.78);
+  font-size: 0.7rem;
   text-transform: uppercase;
   letter-spacing: 2px;
-  margin-top: 3px;
 }
 
-/* MAIN */
+/* Contenido centrado: título y fecha */
+
+.headerCaja .headerContenido {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+/* Monedas a la derecha */
+
+.headerCaja .headerMonedas {
+  position: absolute;
+  top: 50%;
+  right: 20px;
+  width: 55px;
+  height: 55px;
+  object-fit: contain;
+  transform: translateY(-50%);
+}
+
+
+/* ==============================
+   DISTRIBUCIÓN PRINCIPAL
+============================== */
+
 main {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  gap: 24px;
+  grid-template-columns:
+    minmax(260px, 1fr)
+    minmax(320px, 1.25fr)
+    minmax(230px, 250px);
+  align-items: start;
+  gap: 14px;
+  width: 100%;
 }
 
+main > div,
+main > section,
+main > article {
+  min-width: 0;
+}
+
+/* ==============================
+   TARJETAS GENERALES
+============================== */
+
 section {
+  min-width: 0;
+  margin-bottom: 10px;
+  padding: 12px;
   background: var(--fondo);
   border: 1px solid var(--borde);
   border-radius: var(--radius);
-  padding: 16px;
-  margin-bottom: 14px;
-  box-shadow: 0 3px 12px rgba(23, 59, 87, 0.05);
+  box-shadow: 0 2px 8px rgba(23, 59, 87, 0.06);
 }
 
 section h2 {
-  font-size: 0.75rem;
+  margin-bottom: 10px;
   color: var(--muted);
-  text-transform: uppercase;
-  letter-spacing: 1.5px;
+  font-size: 0.7rem;
   font-weight: 700;
-  margin-bottom: 12px;
+  line-height: 1.4;
+  text-transform: uppercase;
+  letter-spacing: 1.3px;
 }
 
-/* CAMPOS */
+/* ==============================
+   APERTURA Y FORMULARIO
+============================== */
+
+.contenedorCajaCierre {
+  display: grid;
+  align-content: start;
+  gap: 0;
+  min-width: 0;
+  margin: 0;
+}
+
+.contenedorCajaCierre section {
+  margin-bottom: 10px;
+}
+
 input,
 select {
   width: 100%;
+  margin-bottom: 7px;
+  padding: 9px 10px;
+  color: var(--texto);
   background: #FFFFFF;
   border: 1.5px solid var(--borde);
   border-radius: 8px;
-  padding: 10px 12px;
-  color: var(--texto);
   font-family: 'DM Sans', sans-serif;
-  font-size: 0.9rem;
-  margin-bottom: 8px;
+  font-size: 0.85rem;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
 input::placeholder {
@@ -115,45 +186,345 @@ select:focus {
 
 input[type="number"]::-webkit-inner-spin-button,
 input[type="number"]::-webkit-outer-spin-button {
-  -webkit-appearance: none;
   margin: 0;
+  -webkit-appearance: none;
 }
 
 input[type="number"] {
   appearance: textfield;
 }
 
-/* BOTONES */
+/* ==============================
+   BOTONES
+============================== */
+
 button {
   width: 100%;
-  padding: 12px;
+  padding: 10px;
   border: none;
-  border-radius: 10px;
+  border-radius: 8px;
   font-family: 'DM Sans', sans-serif;
+  font-size: 0.85rem;
   font-weight: 700;
-  font-size: 0.95rem;
   cursor: pointer;
-  transition: background-color 0.2s, transform 0.2s, box-shadow 0.2s;
+  transition: background-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 #cargar,
 #btnAgregar {
-  background: var(--verde);
+  margin-top: 3px;
   color: #FFFFFF;
-  margin-top: 4px;
+  background: var(--verde);
 }
 
 #cargar:hover,
 #btnAgregar:hover {
   background: var(--verde-claro);
   transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgba(21, 158, 154, 0.2);
+  box-shadow: 0 3px 8px rgba(23, 59, 87, 0.12);
 }
 
-/* RESUMEN Y CIERRE DE CAJA */
+/* ==============================
+   MOVIMIENTOS DEL DÍA
+   CAJA PRINCIPAL
+============================== */
+
+.contenedorMovimiento {
+  display: block;
+  align-self: start;
+  min-width: 0;
+  height: fit-content;
+}
+
+#movimientos {
+  min-width: 0;
+  min-height: 0;
+  height: fit-content;
+  box-shadow: 0 3px 12px rgba(23, 59, 87, 0.06);
+}
+
+.renderMov {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr) auto auto auto;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 6px;
+  color: var(--texto);
+  border-bottom: 1px solid var(--borde);
+  font-family: 'DM Sans', sans-serif;
+  overflow-wrap: anywhere;
+}
+
+.movimientoDia {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  align-items: start;
+  gap: 8px;
+}
+
+.btnEliminar {
+  width: auto;
+  padding: 5px;
+  color: var(--rojo);
+  background: transparent;
+  font-size: 0.7rem;
+  cursor: pointer;
+}
+
+.movTotales {
+  padding: 10px;
+}
+
+.venta {
+  color: var(--verdeVenta);
+  font-size: 0.9rem;
+}
+
+.gasto {
+  color: var(--rojo);
+  font-size: 0.9rem;
+}
+
+.ingreso {
+  color: var(--amarillo);
+  font-size: 0.9rem;
+}
+
+.hora,
+.descripcion {
+  color: var(--muted);
+  font-size: 0.8rem;
+  text-align: center;
+}
+
+.descripcionN {
+  color: var(--texto);
+  font-size: 0.85rem;
+  overflow-wrap: anywhere;
+}
+
+/* ==============================
+   SCROLL DE LA CAJA PRINCIPAL
+============================== */
+
+#listaMovimientos {
+  min-width: 0;
+  max-height: none;
+  overflow: visible;
+}
+
+.listaMovimientosScroll {
+  min-height: 0;
+  max-height: 420px;
+  padding-right: 5px;
+  overflow-x: hidden;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: #AABCC8 #F4F7F8;
+}
+
+.listaMovimientosScroll::-webkit-scrollbar {
+  width: 7px;
+}
+
+.listaMovimientosScroll::-webkit-scrollbar-track {
+  background: #F4F7F8;
+  border-radius: 10px;
+}
+
+.listaMovimientosScroll::-webkit-scrollbar-thumb {
+  background: #AABCC8;
+  border-radius: 10px;
+}
+
+.listaMovimientosScroll::-webkit-scrollbar-thumb:hover {
+  background: var(--verde);
+}
+
+/* Botón fuera del scroll */
+
+.verMas {
+  position: static;
+  display: block;
+  width: 100%;
+  padding-top: 12px;
+}
+
+.verMas a {
+  display: block;
+  width: 100%;
+  text-decoration: none;
+}
+
+.verMas button,
+#btnVerMovimientos,
+.verTodosMovimientos {
+  width: 100%;
+}
+
+/* ==============================
+   HISTORIAL COMPLETO
+   TODOS LOS MOVIMIENTOS
+============================== */
+
+#todosMovimientos {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+  min-width: 0;
+  padding: 0;
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+/* Tarjeta de cada categoría */
+
+#todosMovimientos .grupoMovimientos {
+  min-width: 0;
+  margin: 0;
+  padding: 0 16px;
+  overflow: hidden;
+  background: #FFFFFF;
+  border: 1px solid var(--borde);
+  border-left: 4px solid var(--verdeVenta);
+  border-radius: var(--radius);
+  box-shadow: 0 2px 7px rgba(23, 59, 87, 0.05);
+}
+
+#todosMovimientos .grupoMovimientos.ingreso {
+  border-left-color: var(--amarillo);
+}
+
+#todosMovimientos .grupoMovimientos.gasto {
+  border-left-color: var(--rojo);
+}
+
+#todosMovimientos .grupoMovimientos.venta {
+  border-left-color: var(--verdeVenta);
+}
+
+/* Encabezado de categoría */
+
+#todosMovimientos .encabezadoGrupo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 6px 12px;
+  margin: 0;
+  padding: 13px 0;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid var(--borde);
+  border-radius: 0;
+  box-shadow: none;
+}
+
+#todosMovimientos .encabezadoGrupo h2 {
+  margin: 0;
+  color: var(--texto);
+  font-size: 0.82rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+}
+
+#todosMovimientos .encabezadoGrupo span {
+  color: var(--muted);
+  font-size: 0.75rem;
+  text-align: right;
+}
+
+/* Cada movimiento del historial */
+
+#todosMovimientos .todosMov {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  grid-template-rows: auto auto auto;
+  align-items: center;
+  gap: 4px 12px;
+  min-width: 0;
+  margin: 0;
+  padding: 12px 0;
+  color: var(--texto);
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid var(--borde);
+  border-radius: 0;
+  box-shadow: none;
+  text-align: left;
+}
+
+#todosMovimientos .todosMov:last-child {
+  border-bottom: none;
+}
+
+#todosMovimientos .todosMov h3 {
+  min-width: 0;
+  margin: 0;
+  font-family: 'DM Sans', sans-serif;
+}
+
+/* Descripción */
+
+#todosMovimientos .todosMov .descripcionN {
+  grid-column: 1;
+  grid-row: 1;
+  color: var(--texto);
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-align: left;
+  overflow-wrap: anywhere;
+}
+
+/* Método de pago */
+
+#todosMovimientos .todosMov .descripcion {
+  grid-column: 1;
+  grid-row: 2;
+  color: var(--muted);
+  font-size: 0.75rem;
+  font-weight: 400;
+  text-align: left;
+  overflow-wrap: anywhere;
+}
+
+/* Hora */
+
+#todosMovimientos .todosMov .hora {
+  grid-column: 1;
+  grid-row: 3;
+  margin-top: 2px;
+  color: var(--muted);
+  font-size: 0.72rem;
+  text-align: left;
+}
+
+/* Importe alineado a la derecha */
+
+#todosMovimientos .todosMov .venta,
+#todosMovimientos .todosMov .gasto,
+#todosMovimientos .todosMov .ingreso {
+  grid-column: 2;
+  grid-row: 1 / span 3;
+  align-self: center;
+  margin: 0;
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-align: right;
+  white-space: nowrap;
+}
+
+/* ==============================
+   CIERRES Y RESÚMENES
+============================== */
+
 #cierreEfectivo {
-  background: var(--efectivo);
   color: #FFFFFF;
+  background: var(--efectivo);
 }
 
 #cierreEfectivo h2 {
@@ -161,38 +532,16 @@ button {
 }
 
 .ventasFinales {
-  gap: 3px;
+  display: block;
+  padding-left: 18px;
   color: #FFFFFF;
-  font-size: small;
-  padding-left: 30px;
   font-family: 'DM Sans', sans-serif;
-}
-
-#sueldos {
-  background-color: #173B57;
-  color: #FFFFFF;
-}
-
-#sueldos h2 {
-  color: #FFFFFF;
-}
-
-#cierreIngresos {
-  background-color: #E1F4F2;
-  color: #173B57;
-}
-
-#cierreIngresos h2,
-#cierreIngresos p,
-#cierreIngresos span,
-#cierreIngresos strong,
-#cierreIngresos div {
-  color: #173B57;
+  font-size: small;
 }
 
 #cierreTransferencia {
-  background: #426B83;
   color: #FFFFFF;
+  background: #426B83;
 }
 
 #cierreTransferencia h2 {
@@ -200,157 +549,790 @@ button {
 }
 
 #cierreTarjeta {
-  background: #6876A6;
   color: #FFFFFF;
+  background: #6876A6;
 }
 
 #cierreTarjeta h2 {
   color: rgba(255, 255, 255, 0.9);
 }
 
-/* VENTAS TOTALES */
+main > .contenedorCajaCierre:nth-of-type(3) {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  align-content: start;
+  gap: 0;
+}
+
+main > .contenedorCajaCierre:nth-of-type(3) section {
+  margin-bottom: 10px;
+}
+
+/* ==============================
+   VENTAS TOTALES
+============================== */
+
 #ventasTotales {
-    background: var(--turquesa-suave);
-    border: 1px solid var(--verde);
-    color: var(--azul);
+  color: var(--azul);
+  background: var(--turquesa-suave);
+  border: 1px solid var(--verde);
 }
 
 #ventasTotales h2 {
-    color: var(--azul);
+  color: var(--azul);
 }
 
 #ventasTotales .ventasFinales {
-    color: var(--azul);
+  color: var(--azul);
 }
 
 #ventasTotales .totalVentasDestacado {
-    margin-top: 12px;
-    padding-top: 12px;
-    border-top: 1px solid var(--verde);
-    font-size: 1.2rem;
-    font-weight: 700;
-    color: var(--verde-claro);
+  margin-top: 10px;
+  padding-top: 10px;
+  color: var(--verde-claro);
+  border-top: 1px solid var(--verde);
+  font-size: 1.05rem;
+  font-weight: 700;
 }
 
-.contenedorCajaCierre {
-  margin: auto;
-}
+/* ==============================
+   GASTOS TOTALES
+============================== */
 
-.contenedorMovimiento {
-  display: grid;
-}
-
-/* GASTOS TOTALES */
 #gastosTotales {
-    background: #FFF1F2;
-    border: 1px solid #F2C4CB;
-    color: #873744;
+  color: #873744;
+  background: #FFF1F2;
+  border: 1px solid #F2C4CB;
 }
 
 #gastosTotales h2 {
-    color: #873744;
+  color: #873744;
 }
 
 #gastosTotales .ventasFinales {
-    color: #873744;
+  color: #873744;
 }
 
 #gastosTotales .totalGastosDestacado {
-    font-size: 1.1rem;
-    font-weight: 700;
-    color: #C0394B;
+  color: #C0394B;
+  font-size: 1.05rem;
+  font-weight: 700;
 }
 
-/* MOVIMIENTOS */
-.renderMov {
-  display: grid;
-  grid-template-columns: 1fr 1fr auto 1fr auto;
-  align-items: center;
-  color: var(--texto);
-  font-family: 'DM Sans', sans-serif;
-  gap: 5px;
-  border-bottom: 1px solid var(--borde);
-  padding: 10px;
+/* ==============================
+   INGRESOS DEL DÍA
+============================== */
+
+#cierreIngresos {
+  color: var(--azul);
+  background: var(--turquesa-suave);
 }
 
-.todosMov {
-  display: grid;
-  grid-template-columns: 1fr 1fr auto 1fr auto;
-  align-items: center;
-  color: var(--texto);
-  font-family: 'DM Sans', sans-serif;
-  gap: 5px;
-  border-bottom: 1px solid var(--borde);
-  padding: 10px;
-  background-color: var(--fondo);
+#cierreIngresos h2,
+#cierreIngresos p,
+#cierreIngresos span,
+#cierreIngresos strong,
+#cierreIngresos div {
+  color: var(--azul);
 }
 
-.movimientoDia {
-  display: grid;
-  grid-template-columns: auto 1fr;
-}
+/* ==============================
+   SUELDOS
+============================== */
 
-.btnEliminar {
-  width: auto;
-  background-color: transparent;
-  color: var(--rojo);
-  cursor: pointer;
-  font-size: 0.6rem;
-}
-
-.movTotales {
-  padding: 15px;
-}
-
-.venta {
-  color: var(--verdeVenta);
-  font-size: medium;
-}
-
-.gasto {
-  color: var(--rojo);
-  font-size: medium;
-}
-
-.ingreso {
-  color: var(--amarillo);
-  font-size: medium;
-}
-
-.hora,
-.descripcion {
-  font-size: 2vh;
-  color: var(--muted);
-  text-align: center;
-}
-
-.descripcionN {
-  color: var(--texto);
-  font-size: small;
-}
-
-/* WHATSAPP */
-#btnWhatsapp {
-  background: #25D366;
+#sueldos {
   color: #FFFFFF;
+  background: var(--azul);
+}
+
+#sueldos h2 {
+  color: #FFFFFF;
+}
+
+/* ==============================
+   RESUMEN INFERIOR
+============================== */
+
+.contenedoResumen {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  align-items: stretch;
+  gap: 12px;
+  width: 100%;
   margin-bottom: 14px;
+}
+
+.contenedoResumen section {
+  min-width: 0;
+  margin: 0;
+  padding: 14px;
+}
+
+.contenedoResumen #sueldos {
+  grid-column: auto;
+}
+
+/* ==============================
+   WHATSAPP
+============================== */
+
+#btnWhatsapp {
+  grid-column: 1 / -1;
+  width: 100%;
+  margin: 0 0 14px;
+  color: #FFFFFF;
+  background: #25D366;
 }
 
 #btnWhatsapp:hover {
   background: #1DA851;
   transform: translateY(-1px);
+  box-shadow: 0 3px 8px rgba(23, 59, 87, 0.12);
 }
 
-/* FOOTER */
+/* ==============================
+   FOOTER
+============================== */
+
 footer {
-  text-align: center;
+  padding-top: 12px;
   color: var(--muted);
+  text-align: center;
 }
 
-/* RESPONSIVE */
-@media (max-width: 768px) {
+/* ==============================
+   TABLETS
+============================== */
+@media (min-width: 651px) and (max-width: 1050px) {
   main {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+  }
+
+  .contenedorMovimiento {
+    grid-column: 2;
+  }
+
+  main > .contenedorCajaCierre:nth-of-type(3) {
+    grid-column: 1 / -1;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 10px;
+  }
+
+  main > .contenedorCajaCierre:nth-of-type(3) section {
+    margin-bottom: 0;
+  }
+
+  .contenedoResumen {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+/* ==============================
+   CELULARES
+============================== */
+
+@media (max-width: 650px) {
+
+  body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    padding: 8px;
+    font-size: 14px;
+  }
+
+  /* Encabezado */
+
+  header.headerCaja {
+    display: block;
+    position: relative;
+    min-height: 76px;
+    margin-bottom: 12px;
+    padding: 12px 48px;
+    text-align: center;
+  }
+
+  .headerCaja .headerContenido {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+  }
+
+  .headerCaja h1 {
+    font-size: 1.15rem;
+    line-height: 1.35;
+  }
+
+  .headerCaja p {
+    margin-top: 4px;
+    font-size: 0.68rem;
+    letter-spacing: 1px;
+  }
+
+  .headerCaja .headerMonedas {
+    position: absolute;
+    top: 50%;
+    right: 7px;
+    width: 36px;
+    height: 36px;
+    transform: translateY(-50%);
+  }
+
+  /* Distribución principal */
+
+  main {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    align-items: start;
+    gap: 0;
+    width: 100%;
+  }
+
+  main > div,
+  main > section,
+  main > article,
+  .contenedorCajaCierre,
+  .contenedorMovimiento {
+    grid-column: 1;
+    width: 100%;
+    min-width: 0;
+  }
+
+  .contenedorCajaCierre {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    align-content: start;
     gap: 0;
   }
+
+  .contenedorMovimiento {
+    display: block;
+    align-self: start;
+  }
+
+  main > .contenedorCajaCierre:nth-of-type(3) {
+    display: grid;
+    grid-column: 1;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 0;
+  }
+
+  /* Tarjetas */
+
+  section {
+    width: 100%;
+    min-width: 0;
+    margin-bottom: 10px;
+    padding: 12px;
+    border-radius: 10px;
+  }
+
+  section h2 {
+    margin-bottom: 10px;
+    font-size: 0.7rem;
+  }
+
+  /* Campos */
+
+  input,
+  select {
+    display: block;
+    width: 100%;
+    min-width: 0;
+    min-height: 40px;
+    margin-bottom: 7px;
+    padding: 10px;
+    font-size: 14px;
+  }
+
+  /* Botones */
+
+  button {
+    width: 100%;
+    min-height: 40px;
+    padding: 10px;
+    font-size: 13px;
+  }
+
+  #cargar,
+  #btnAgregar {
+    margin-top: 3px;
+  }
+
+  /* Movimientos del día */
+
+  #movimientos {
+    width: 100%;
+    min-width: 0;
+    height: auto;
+  }
+
+  #listaMovimientos {
+    width: 100%;
+    min-width: 0;
+  }
+
+  .listaMovimientosScroll {
+    width: 100%;
+    max-height: 320px;
+    padding-right: 2px;
+    overflow-x: hidden;
+    overflow-y: auto;
+  }
+
+ 
+  
+/* MOVIMIENTOS DEL DÍA EN CELULAR */
+
+.renderMov {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto 24px;
+  align-items: center;
+  column-gap: 8px;
+  row-gap: 4px;
+  width: 100%;
+  padding: 10px 4px;
+  overflow: hidden;
+}
+
+/* Primera columna: descripción y datos */
+.renderMov .movimientoDia {
+  grid-column: 1;
+  grid-row: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4px;
+  min-width: 0;
+}
+
+.renderMov .descripcionN {
+  max-width: 100%;
+  font-size: 0.8rem;
+  text-align: left;
+  overflow-wrap: anywhere;
+}
+
+/* Segunda columna: importe */
+.renderMov .venta,
+.renderMov .gasto,
+.renderMov .ingreso {
+  grid-column: 2;
+  grid-row: 1;
+  justify-self: end;
+  align-self: center;
+  margin: 0;
+  font-size: 0.8rem;
+  white-space: nowrap;
+}
+
+/* Hora y método, si están como elementos separados */
+.renderMov .hora,
+.renderMov .descripcion {
+  font-size: 0.7rem;
+  text-align: left;
+  overflow-wrap: anywhere;
+}
+
+/* Tercera columna: X roja */
+.renderMov .btnEliminar {
+  grid-column: 3;
+  grid-row: 1;
+  justify-self: center;
+  align-self: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  min-width: 24px;
+  height: 30px;
+  min-height: 30px;
+  margin: 0;
+  padding: 0;
+  color: var(--rojo);
+  background: transparent;
+  border: none;
+  font-size: 1.2rem;
+  line-height: 1;
+}
+
+  .verMas {
+    width: 100%;
+    padding-top: 10px;
+  }
+
+  /* Resúmenes */
+
+  .contenedoResumen {
+    display: grid;
+    grid-column: 1;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 0;
+    width: 100%;
+    margin-bottom: 12px;
+  }
+
+  .contenedoResumen section {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+
+  .contenedoResumen #sueldos {
+    grid-column: 1;
+  }
+
+  #btnWhatsapp {
+    grid-column: 1;
+    width: 100%;
+    margin-bottom: 12px;
+  }
+
+  /* Historial completo dentro de la aplicación */
+
+  #todosMovimientos {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+    min-width: 0;
+  }
+
+  #todosMovimientos .grupoMovimientos {
+    width: 100%;
+    min-width: 0;
+    padding: 0 10px;
+  }
+
+  #todosMovimientos .encabezadoGrupo {
+    gap: 6px;
+    padding: 11px 0;
+  }
+
+  #todosMovimientos .encabezadoGrupo h2 {
+    font-size: 0.76rem;
+  }
+
+  #todosMovimientos .encabezadoGrupo span {
+    font-size: 0.68rem;
+  }
+
+  #todosMovimientos .todosMov {
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 4px 8px;
+    padding: 11px 0;
+  }
+
+  #todosMovimientos .todosMov .descripcionN {
+    font-size: 0.8rem;
+  }
+
+  #todosMovimientos .todosMov .descripcion {
+    font-size: 0.72rem;
+  }
+
+  #todosMovimientos .todosMov .hora {
+    font-size: 0.68rem;
+  }
+
+  #todosMovimientos .todosMov .venta,
+  #todosMovimientos .todosMov .gasto,
+  #todosMovimientos .todosMov .ingreso {
+    font-size: 0.76rem;
+  }
+
+  footer {
+    padding: 12px 4px;
+    font-size: 0.75rem;
+  }
+}
+
+/* ==============================
+   PÁGINA DE HISTORIAL
+============================== */
+
+body.paginaMovimientos {
+    display: block;
+    min-height: 100vh;
+    padding: 20px;
+    background: #F4F7F8;
+}
+
+/* Encabezado: solo contiene el título */
+
+.headerMovimientos {
+    margin: 0 0 20px;
+    padding: 24px 16px;
+    text-align: center;
+    background: #173B57;
+    border-radius: 12px;
+    box-shadow: 0 3px 10px rgba(23, 59, 87, 0.08);
+}
+
+.headerMovimientos h1 {
+    color: #FFFFFF;
+    font-family: 'Playfair Display', serif;
+    font-size: 1.7rem;
+}
+
+.headerMovimientos p {
+    margin-top: 6px;
+    color: rgba(255, 255, 255, 0.8);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.8rem;
+    letter-spacing: 0.5px;
+    text-transform: none;
+}
+
+/* Contenido principal */
+
+.mainMovimientos {
+    display: block;
+    width: 100%;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+/* Enlace para volver */
+
+.volverMovimientos {
+    display: inline-block;
+    margin-bottom: 16px;
+    color: #173B57;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.volverMovimientos:hover {
+    color: #159E9A;
+}
+
+/* Lista de categorías */
+
+.paginaMovimientos #todosMovimientos {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    width: 100%;
+    padding: 0;
+    background: transparent;
+    border: none;
+    box-shadow: none;
+}
+
+/* Tarjeta de categoría */
+
+.paginaMovimientos #todosMovimientos .grupoMovimientos {
+    margin: 0;
+    padding: 0 16px;
+    overflow: hidden;
+    background: #FFFFFF;
+    border: 1px solid #DCE5E9;
+    border-left: 4px solid #218653;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(23, 59, 87, 0.05);
+}
+
+.paginaMovimientos #todosMovimientos .grupoMovimientos.ingreso {
+    border-left-color: #B7791F;
+}
+
+.paginaMovimientos #todosMovimientos .grupoMovimientos.gasto {
+    border-left-color: #D84C5B;
+}
+
+.paginaMovimientos #todosMovimientos .grupoMovimientos.venta {
+    border-left-color: #218653;
+}
+
+/* Título y total de cada grupo */
+
+.paginaMovimientos #todosMovimientos .encabezadoGrupo {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 0;
+    padding: 14px 0;
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid #DCE5E9;
+    border-radius: 0;
+    box-shadow: none;
+}
+
+.paginaMovimientos #todosMovimientos .encabezadoGrupo h2 {
+    margin: 0;
+    color: #243746;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.82rem;
+    font-weight: 700;
+    letter-spacing: 0.8px;
+}
+
+.paginaMovimientos #todosMovimientos .encabezadoGrupo span {
+    color: #718096;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.75rem;
+}
+
+/* Filas compactas */
+
+.paginaMovimientos #todosMovimientos .todosMov {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    grid-template-rows: auto auto auto;
+    align-items: center;
+    gap: 4px 16px;
+    margin: 0;
+    padding: 12px 0;
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid #E8EEF1;
+    border-radius: 0;
+    box-shadow: none;
+    text-align: left;
+}
+
+.paginaMovimientos #todosMovimientos .todosMov:last-child {
+    border-bottom: none;
+}
+
+.paginaMovimientos #todosMovimientos .todosMov h3 {
+    min-width: 0;
+    margin: 0;
+    font-family: 'DM Sans', sans-serif;
+}
+
+/* Descripción */
+
+.paginaMovimientos #todosMovimientos .todosMov .descripcionN {
+    grid-column: 1;
+    grid-row: 1;
+    color: #243746;
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-align: left;
+    overflow-wrap: anywhere;
+}
+
+/* Método de pago */
+
+.paginaMovimientos #todosMovimientos .todosMov .descripcion {
+    grid-column: 1;
+    grid-row: 2;
+    color: #718096;
+    font-size: 0.76rem;
+    font-weight: 400;
+    text-align: left;
+}
+
+/* Hora */
+
+.paginaMovimientos #todosMovimientos .todosMov .hora {
+    grid-column: 1;
+    grid-row: 3;
+    color: #718096;
+    font-size: 0.72rem;
+    text-align: left;
+}
+
+/* Importe */
+
+.paginaMovimientos #todosMovimientos .todosMov .venta,
+.paginaMovimientos #todosMovimientos .todosMov .gasto,
+.paginaMovimientos #todosMovimientos .todosMov .ingreso {
+    grid-column: 2;
+    grid-row: 1 / span 3;
+    align-self: center;
+    margin: 0;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-align: right;
+    white-space: nowrap;
+}
+
+/* Móvil */
+
+@media (max-width: 600px) {
+    body.paginaMovimientos {
+        padding: 10px;
+    }
+
+    .headerMovimientos {
+        margin-bottom: 14px;
+        padding: 20px 12px;
+    }
+
+    .headerMovimientos h1 {
+        font-size: 1.35rem;
+    }
+
+    .mainMovimientos {
+        width: 100%;
+    }
+
+    .paginaMovimientos #todosMovimientos {
+        gap: 10px;
+    }
+
+    .paginaMovimientos #todosMovimientos .grupoMovimientos {
+        padding: 0 10px;
+    }
+
+    .paginaMovimientos #todosMovimientos .encabezadoGrupo {
+        gap: 5px;
+        padding: 12px 0;
+    }
+
+    .paginaMovimientos #todosMovimientos .encabezadoGrupo h2 {
+        font-size: 0.76rem;
+    }
+
+    .paginaMovimientos #todosMovimientos .encabezadoGrupo span {
+        font-size: 0.68rem;
+    }
+
+    .paginaMovimientos #todosMovimientos .todosMov {
+        gap: 4px 8px;
+        padding: 11px 0;
+    }
+
+    .paginaMovimientos #todosMovimientos .todosMov .descripcionN {
+        font-size: 0.8rem;
+    }
+
+    .paginaMovimientos #todosMovimientos .todosMov .descripcion {
+        font-size: 0.72rem;
+    }
+
+    .paginaMovimientos #todosMovimientos .todosMov .hora {
+        font-size: 0.68rem;
+    }
+
+    .paginaMovimientos #todosMovimientos .todosMov .venta,
+    .paginaMovimientos #todosMovimientos .todosMov .gasto,
+    .paginaMovimientos #todosMovimientos .todosMov .ingreso {
+        font-size: 0.76rem;
+    }
+}
+
+/* Separación entre movimientos y resúmenes */
+.contenedorMovimiento {
+  margin-bottom: 12px;
+}
+
+.contenedoResumen {
+  margin-top: 4px;
+  gap: 0;
+}
+
+.contenedoResumen section {
+  margin-bottom: 12px;
 }
