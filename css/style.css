@@ -74,7 +74,7 @@ header p {
 
 /* Contenido centrado: título y fecha */
 
-.headerCaja .headerContenido {
+.headerCaja {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -1063,6 +1063,8 @@ body.paginaMovimientos {
 /* Encabezado: solo contiene el título */
 
 .headerMovimientos {
+    display:flex;
+    flex-direction: column;
     margin: 0 0 20px;
     padding: 24px 16px;
     text-align: center;
@@ -1105,10 +1107,15 @@ body.paginaMovimientos {
     font-size: 0.85rem;
     font-weight: 700;
     text-decoration: none;
+    background:#caf0d8;
+    padding: 6px 12px;
+    border-radius: 8px;
+    transition: color 0.2s ease, background-color 0.2s ease;
 }
 
 .volverMovimientos:hover {
-    color: #159E9A;
+    color: #858b8b;
+    background-color: #a8e6c9;
 }
 
 /* Lista de categorías */
